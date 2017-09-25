@@ -1,0 +1,1242 @@
+my-app .main-panel .main-content .card{
+    animation-duration: 750ms;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+@media (min-width: 992px){
+    .typo-line{
+        padding-left: 140px;
+        margin-bottom: 40px;
+        position: relative;
+    }
+
+    .typo-line .category{
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0px;
+        position: absolute;
+    }
+    .loginHolder{
+      margin-left: 150px;
+    }
+    .widgetHolder{
+        height:348px;
+    }
+    
+}
+
+#map{
+    position:relative;
+    width:100%;
+    height: calc(100% - 60px);
+    margin-top: 70px;
+}
+
+.places-buttons .btn{
+    margin-bottom: 30px
+}
+
+.space-70{
+    height: 70px;
+    display: block;
+}
+
+.sidebar .nav > li.active-pro{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+}
+.moving-tab{
+    background-color: #ff9800 !important;
+}
+
+.logoutDropdown li a:hover{
+    background-color: #ff9800 !important;
+}
+
+.navbar .dropdown-menu li a:hover,
+.navbar .dropdown-menu li a:focus,
+.navbar .dropdown-menu li a:active, .navbar.navbar-default .dropdown-menu li a:hover,
+.navbar.navbar-default .dropdown-menu li a:focus,
+.navbar.navbar-default .dropdown-menu li a:active {
+  background-color: #ff9800 !important;
+  color: #FFFFFF;
+  box-shadow: 0 12px 20px -10px rgba(156, 39, 176, 0.28), 0 4px 20px 0px rgba(0, 0, 0, 0.12), 0 7px 8px -5px rgba(156, 39, 176, 0.2);
+}
+.comingSoon{
+    font-size: 40px;
+    margin-top: 120px;
+    color:black;
+    opacity: 0.3;
+}
+.noDeviceMessage{
+    margin-top: 180px;
+    text-align:center;
+}
+.isLoading{
+   width: 100%;
+   height: 100vh;
+   background-color: rgba(158, 158, 158, 0.24);
+   position: absolute;
+   top: 0; 
+}
+.loadingImage{
+    position: absolute;
+    left: 35%;
+    top: 20%;
+    height: 300px;
+    width: 300px;
+}
+.deviceName{
+    width: 97px;
+    float:right;
+    text-align:right;
+    padding-bottom:5px;
+}
+.locationNameHolder{
+    margin-top:-60px;
+    margin-bottom:50px;
+}
+.locationName{
+    font-size: 30px;
+    font-weight: 400;
+    margin-left:20px;
+}
+.profileValue {
+    float: right;
+    padding-left: 10px;
+    margin-top: 10px;
+    padding-right: 16px;
+    font-size: 13px;
+    width: 135px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+}
+.profileKey{
+  width: 13px;
+    height: 21px;
+   float: left;
+   margin-top: 10px;
+   padding-left: 16px; 
+   font-weight: 400;
+}
+#profilebackbtn {
+    width: 13px;
+    height: 21px;
+    background: url('../img/profileback.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: none;
+}
+/* homelocation changes */
+.homelocation{
+   top:0px;
+   bottom:0px;
+   left:0;
+   right:0;
+   z-index: 2;
+   position:absolute;
+   background: url('../img/BG_image.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.bulbIconOn{
+    height: 40px;
+    width: 40px;
+    background: url('../img/activebulb.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: block;
+}
+.bulbIconOff{
+    height: 40px;
+    width: 40px;
+    background: url('../img/normalbulb.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: block;
+}
+.bulbIconOff:hover{
+    height: 70px;
+    width: 70px;
+    background: url('../img/hoverbulb.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: block;
+}
+.activebulbIcon{
+    height: 70px;
+    width: 70px;
+    background: url('../img/activebulb.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    display: block;
+}
+.mdbulbIconOn{
+    height: 40px;
+    width: 40px;
+    background-color: #ff9800;
+    color: #FFF; 
+    border-radius: 25px;
+    padding-left: 5px;
+    padding-top:6px;
+}
+.mdbulbIconOff{
+    height: 40px;
+    width: 40px;
+    background-color: #ff9800;
+    color: #000;
+    border-radius: 25px;
+    padding-left: 5px;
+    padding-top:6px; 
+}
+.mdbulbIconOn:hover{
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+    padding-left: 10px;
+    padding-top: 10px;  
+}
+.mdbulbIconOff:hover{
+    height: 70px;
+    width: 70px;
+    border-radius: 35px;
+    padding-left: 10px;
+    padding-top: 10px; 
+}
+.mdactivebulbIcon{
+   height: 70px;
+   width: 70px;
+   border-radius: 35px;
+   padding-left: 10px;
+   padding-top: 10px;
+}
+.mdactivebulbIcon:after {
+  left: 85%;
+  top: 50%;
+  border: solid transparent;
+  content: " ";
+  position: absolute;
+  pointer-events: none;
+    border-color: rgba(136, 183, 213, 0);
+  border-left-color: #ff9800;
+  border-width:20px;
+  margin-top: -20px;
+}
+  .bulbNames{
+    line-height: 33px;
+    font-size: 16px;
+    color: black;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    width: 132px;
+    white-space: nowrap;
+    float: right;
+  }
+
+/* homelocationBulb css */
+.tvBulb {
+    left: 16%;
+    position: absolute;
+    top: 173px
+  }
+  .thermostatBulb
+  {
+    left: 29%;
+    top: 111px;
+    position: absolute;
+  }
+
+  .bedroomWhiteBulb
+  {
+    right: 20%;
+    top: 108px;
+    position: absolute;
+  }
+    .bedroomColorBulb
+  {
+    left: 41%;
+    top: 365px;
+    position: absolute;
+  }
+  .balconyBulb
+  {
+    left: 44%;
+    top: 98px;
+    position: absolute;
+  }
+  .kitchenBulb{
+      left: 31%;
+    position: absolute;
+    top: 326px;
+  }
+  .diningTableBulb
+  {
+    right: 43%;
+    position: absolute;
+    top: 120px;
+  }
+/* homelocationBulb css */
+
+.camera{
+    height: 40px;
+    width: 40px;
+    background: url('../img/camera.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-left: 40%;
+    margin-top: 88px;
+    position: absolute;
+}
+.censor{
+    height: 40px;
+    width: 40px;
+    background: url('../img/censor.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-left: 59%;
+    top: 136px;
+    position: absolute;
+}
+.lock{
+    height: 40px;
+    width: 40px;
+    background: url('../img/lock.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-left: 38%;
+    margin-top: 182px;
+    position: absolute;
+}
+.thermostat{
+    height: 40px;
+    width: 40px;
+    background: url('../img/thermostat.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-left: 34%;
+    margin-top: 194px;
+    position: absolute;
+}
+/*.homeMenuSettings{
+    list-style: none;
+    margin-top: 0px;
+    margin-left: 50px;
+    padding-left:0px;
+    float:right;
+}
+.homeMenuSettings li:hover{
+    color: #ff9800;
+}
+.homeMenuSettings li{
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    padding-left: 13px;
+    color: #FFF;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    margin-top:10px;
+    margin-right: 20px;
+    padding-right:13px;
+}*/
+.homeMenu{
+    list-style: none;
+    /*position: absolute;*/
+    margin-top: 0px;
+    /*margin-left: 50px;*/
+    padding-left:0px;
+        float: right;
+        color: #ff9800;
+
+}
+.homeMenu li{
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    padding-left: 13px;
+    color: #FFF;
+    font-weight: 600;
+    display: inline-block;
+    text-align: center;
+    margin-top:10px;
+    margin-right: 20px;
+    padding-right:13px;
+}
+.homeMenu li:hover{
+    color: #ff9800;
+    /*border-bottom: 3px solid #ff9800;*/
+}
+.homeMenu  i
+{
+  color: #ff9800;
+      top: 2px;
+    position: relative;
+}
+.cameraViewLoc
+{
+      margin-left: 40%;
+    margin-top: 78px
+}
+.activeHomeMenu{
+    height: 30px;
+    color: #ff9800;
+    border-bottom: 3px solid #ff9800;
+    border-right: 0 !important;
+        height: 42px; 
+}
+.largerBulbIcon{
+    font-size: 50px !important;
+}
+.micon{
+    font-size: 30px !important;
+}
+.micon:hover{
+    font-size: 50px !important;
+}
+.activemicon{
+    font-size: 50px !important;
+}
+.card{
+    border-radius: 13px;
+}
+.card .card-footer {
+  /*margin: 0 20px 30px;*/
+    margin: 0 20px 20px;
+}
+  .headerHealth{
+/*    height: 50px;
+*//*   background-color: rgba(53, 57, 56, 0.42);
+*/  }
+ .card-footer-loc
+  {
+    margin: 0 20px 10px!important;
+  }
+  .personIcon{
+  color: #ff9800;
+  top:-2px;
+  position: relative;
+}
+.thermostatViewLoc
+{
+  margin-left: 36%;
+    top: 80px;
+}
+/*.navbar-nav:hover>.dropdown
+{
+  background-color: #ff9800
+}
+.dropdown:hover .dropdown
+{
+  background-color: #ff9800
+}
+.dropdown-toggle:hover .dropdown
+{
+background-color: #ff9800
+}*/
+.nav .open>a:hover
+{
+
+}
+
+/* homelocation changes */
+
+
+@media (max-width: 991px) {
+    .sidebar .nav > li.active-pro{
+        position: relative;
+        width: 100%;
+        bottom: 10px;
+    }
+    .sidebar .nav > li.active-pro > a{
+        margin-top: 20px;
+
+    }
+    .comingSoon{
+       margin-left: 10%;
+    }
+}
+
+.tim-row{
+    margin-bottom: 20px;
+}
+
+.tim-typo{
+    padding-left: 25%;
+    margin-bottom: 40px;
+    position: relative;
+}
+.tim-typo .tim-note{
+    bottom: 10px;
+    color: #c0c1c2;
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 13px;
+    left: 0;
+    margin-left: 20px;
+    position: absolute;
+    width: 260px;
+}
+.tim-row{
+    padding-top: 50px;
+}
+.tim-row h3{
+    margin-top: 0;
+}
+
+.widgetNum{
+    color: white;
+    float: right;
+    font-size: 60px;
+    font-weight:200;
+    margin-top: 30px;
+    margin-right: 25px;
+}
+
+.footerWrapper{
+  width: 100%;
+  height: 100%;
+}
+
+/*==================== multicolor*/
+
+.multicolor{
+  width: 25px;
+  height: 25px;
+  float: left;
+  margin-top:27px;
+  border-radius: 35px;
+  border:none;
+  margin-right: 8px;
+  cursor: pointer;
+}
+
+/*.color-picker{
+  z-index: 200000 !important;
+}*/
+/*.card{
+  z-index: -2 !important;
+}*/
+
+/*.color-picker{
+  width: 187px !important;
+  top: 152px !important;
+  left: 21px !important;
+}
+.rgba-text{
+  display: none !important;
+}
+.box {
+  display: none !important;
+}
+.type-policy{
+  display:none !important;
+}*/
+
+.hsla-text{
+  display: none !important;
+}
+.rgba-text{
+  display: none !important;
+}
+.hex-text{
+  display: none !important;
+}
+.type-policy{
+  display: none !important;
+}
+.marginTopBox
+{
+  margin-top:90px;
+}
+
+.thumbnails li
+{
+  list-style-type: none;
+  display:block;
+  margin-bottom:40px;
+}
+.thumbnails li a
+{
+  position: relative;
+}
+.thumbnails .thumbImg
+{
+/* width: 151px;
+  height: 84px;*/
+}
+.thumbnails .otherImg
+{
+    top: -16px;
+    left: 52px;
+    position: absolute;
+}
+.slides li
+{
+  list-style-type: none;
+}
+.thumbnailWrap
+{
+text-align: center;  
+}
+.thumbnailWrap
+{
+float: left;
+width: 22%;
+padding-top: 3px;
+}
+.slidesWrap
+{
+  float: left;width: 78%;
+}
+.view{
+  position: absolute;
+    top: -4px;
+    width: 80px;
+    height: 22px;
+    border-radius: 11px;
+    background-color: rgb(255, 152, 0);
+    text-align: center;
+    left: 40px;
+    font-family: Myriad Pro;
+    font-size: 16px;
+    color: #fff;
+    visibility: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 1.2s linear;
+  }
+  .displayNone
+  {
+    display: none;
+
+  }
+  .displayBlock
+  {
+    display: block;
+  }
+  .alertPopup{
+  height:100%;
+  width:100%;
+  position:absolute;
+  top:0;left:0;
+  background-color:#000000;
+  z-index:1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.98;
+}
+.popupWrapper
+    {
+        background-color: white; 
+        display: block;  
+        margin:auto;
+        z-index:2000;
+        border-radius: 8px;
+    }
+      .alertPopupWrapper
+      {
+        width: 350px;
+      }
+      .alertPopupDoor
+      {
+        width: 390px;
+      }
+      .messagePopup
+      {
+        background: linear-gradient(to right, #e60000 0%, #f48c00 100%);
+        text-align: left;
+        color: #ffffff;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;;
+        font-size: 16px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+        .messagePopupDoor
+      {
+        background:  rgb(255, 152, 0);
+        text-align: left;
+        color: #ffffff;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 10px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;;
+        font-size: 16px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+      }
+      .popupCameraMsg
+      {
+        margin-top:30px;
+        margin-bottom:30px;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;;
+        text-align: left;
+        color: #4e4c4c;
+      }
+      .popupCameraMsgDoor
+      {
+        margin-top:30px;
+         font-family: "Roboto", "Helvetica", "Arial", sans-serif;;
+        text-align: left;
+        color: #4e4c4c;
+      }
+      .msgDetailsPopup{
+          font-size: 14px;
+          line-height: 12px;
+     }
+      .msgDetailsDoorPop
+      {
+           font-size: 15px;
+      }
+      .fireSmallIcon
+      {
+        margin-left:9px;
+      }
+      .cancelPopup
+      {
+      float: right;
+      right: 20px;
+      position: relative;
+      cursor: pointer;
+
+      }
+    .cancelPopupDoor
+    {
+    float: right;
+    right: 10px;
+    position: relative;
+    cursor: pointer;
+    top: -10px;
+  }
+      .msgDetailsPopup,.timeDetailsPopup
+      {
+        margin-left:6px;
+      }
+
+      .msgHeaderPopup
+      {
+        font-size: 18px;
+        margin-bottom:3px;
+      }
+      .msgRoomPopup
+      {
+        margin-bottom:5px;
+        font-size: 14px
+      }
+      .msgTimePopup
+      {
+        margin-bottom:5px;
+        font-size: 18px
+      }
+      .doorPopFrstMsg
+      {
+        margin-bottom:5px;
+        font-size: 15px
+      }
+      .doorPopOthMsg
+      {
+        font-size: 15px
+      }
+      .viewCamera
+      {
+      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+      font-size: 12px;
+      color: #f27700;
+      margin-left: 8px;
+      display: block;      
+    }
+    .viewCameraDoor
+      {
+      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+      font-size: 12px;
+      color: #f27700;
+      margin-left: 8px;
+      display: block;      
+    }
+      .pointerCursor
+      {
+       cursor:pointer;
+      }
+      .cameraName
+      {
+        position: absolute;
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-size: 13px;
+        color: #ffffff;
+        position: absolute;
+        top: 30px;
+        left: 10px;
+      }
+      .smokeImg
+      {
+        top: -8px;
+        position: relative;
+      }
+      .thumbnails
+      {
+        padding-left: 0px;
+        padding-right: 0px;
+        padding-top: 26px;
+      }
+      .cameraNameStream
+      {
+        font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+        font-size: 16px;
+        line-height: 28px;
+        text-align: left;
+        color: #4e4e4e;
+        text-align: center;
+        height: 25px;
+      }
+      .cameraPopupWrapper
+      {
+        display:none;
+        background-color: black;
+        position: relative;
+        /*width:771px;
+        height:434px*/
+        width:60%;
+      }
+      .cameraPopupWrapper video
+      {
+        border-radius: 8px;
+      }
+      .cancelPopupCamera
+      {
+      float: right;
+      color: white;
+      font-size: 14px;
+      position: relative;
+      cursor: pointer;
+      position: relative;
+      cursor: pointer;
+      top: 11px;
+      }
+      .cameraInPopup
+      {
+        border-radius: 10px;
+        width:95%;
+      }
+      .cancelPopupCamera
+      {
+        float: right;
+        right: 3%;
+        top: -20px;
+        position: absolute;
+      }
+      .securityImg
+      {
+        width:109px;
+        height:128px;
+        margin-bottom: 20px;
+        margin: 5px auto;
+      }
+      .onImg
+      {
+        background-image: url('../img/security-on.png');
+        background-repeat: no-repeat;
+      }
+      .offImg
+      {
+        background-image: url('../img/security-off.png');
+        background-repeat: no-repeat;
+      }
+      .settingsText
+      {
+       font-size: 30px;
+        line-height: 28px;
+        text-align: left;
+        color: #545454;
+        margin-top: 23px;
+        margin-left: 10px;
+      }
+
+      .secModeText,.tempSettingsText,.peakSettingsText
+      {
+        /*font-size: 23px;*/
+      /* color: #494949  */
+        background-color: #ff9801!important;
+           color: white;
+           text-align: center;   
+       }
+       .secModeText
+       {
+          
+      }
+       .setSecMode
+       {
+        margin-bottom: 20px;
+       }
+       .settingsWrapper
+       {
+        margin-top: 30px;
+        padding-left: 30px;
+       }
+       .secSettings
+       {
+        padding-left:2%;
+       }
+       .securityImg 
+       {
+          /*margin-left: 5px;*/
+       }
+       .toggleSecurity .blueSwitch 
+       {
+          margin-right: 19px;
+       }
+       .securityImg 
+       {
+            margin: 5px auto;
+       }
+       .toggleSecurity
+       {
+        margin-top: 23px;
+       }
+       .secImgWrap,.setSecMode,
+       {
+        /*margin-left: 20px;*/
+       }
+       .toggleSecurity
+       {
+
+       }
+       .fromTemp,.toTemp,.acTempVal,.frPeakVal,.toPeakVal
+       {
+        width: 45px;
+        height: 26px;
+        background-color: #e1e1e1;
+        border: none;
+       }
+       .frPeakVal,.toPeakVal,.frPeak,.toPeak
+       {
+        margin-left: 15px;
+       }
+       .weatherCloud
+       {
+        background-image: url('../img/weather-icon.png');
+        background-repeat: no-repeat;
+        width:52px;
+        height: 37px;
+        opacity: 0.4;
+       }
+       .acTemp
+       {
+        background-image: url('../img/ac-on-icon.png');
+        background-repeat: no-repeat;
+        width:48px;
+        height: 35px;
+        opacity: 0.4;
+       }
+       .clockOthImg
+       {
+        background-image: url('../img/clock-icon.png');
+        background-repeat: no-repeat;
+        width:32px;
+        height: 37px;
+        opacity: 0.4;
+       }
+       .clockImg
+       {
+        background-image: url('../img/clock-icon-oth.png');
+        background-repeat: no-repeat;
+        width:32px;
+        height: 32px;
+        opacity: 0.4;
+       }
+       .yellowFontSettings
+       {
+            font-size: 14px;
+            color: #ff9801
+       }
+       .secDetails,.tempDetails,.peakRangeDetails
+       {
+        padding-top: 20px;
+       }
+       .secDetails
+       {
+        text-align: center;
+       }
+        .marginBotTen{
+           margin-bottom: 10px;
+         }
+        .marginBotTwenty{
+           margin-bottom: 20px;
+         }
+         .marginBotThirty{
+           margin-bottom: 30px;
+         }
+         .marginBotForty
+         {
+          margin-bottom: 40px;
+         }
+         .frTmp,.fromTemp
+         {
+              margin-left: 10px;
+
+         }
+         .toTmp
+         {
+              margin-left: 15px;
+         }
+         .toTemp
+         {
+          margin-left: 20px;
+         }
+         .acTempVal
+         {
+          margin-left: 9px;
+          }
+          .tempReset{
+            border-radius: 9px;
+            background-color: #a9b0ba;
+            border: none;
+            color: #272727;
+            line-height: 25px;
+            width: 60px;
+            height: 28px;
+            margin-left: 140px;
+          }
+          .tempSave{
+            border-radius: 9px;
+            background-color: #ff9801;
+            border: none;
+            color: #f;
+            line-height: 25px;
+            width: 60px;
+            height: 28px;
+            margin-left: 35px;
+          }
+          .peakReset{
+            border-radius: 9px;
+            background-color: #a9b0ba;
+            border: none;
+            color: #272727;
+            line-height: 25px;
+            width: 60px;
+            height: 28px;
+            margin-left: 140px;
+            float: left;
+          }
+          .peakSave{
+            border-radius: 9px;
+            background-color: #ff9801;
+            border: none;
+            color: #f;
+            line-height: 25px;
+            width: 60px;
+            height: 28px;
+            margin-left: 27px;
+            float: left;
+
+          }
+          .healHeadrTxt
+          {
+             font-size: 28px;
+             color: #545454;
+             margin-top:20px;
+            padding-left: 3%;
+          }
+          .healthprofileWrap
+          {
+            padding-top:22px;
+            padding-left: 3%;
+          }
+          .activityWrap
+          {
+            padding-top:22px;
+          }
+          .dobHealth
+          {
+/*            margin-left: 5px;
+*/          }
+          .dobHealth,.mobHealth
+          {
+                    border-right: 0.3px solid #ddd;
+                      padding-left: 5%;
+          }
+          .weightHealth
+          {
+                width: 40px;
+                border: 0.3px solid #ddd;
+          }
+          .heightHealth
+          {
+                border-top: 0.3px solid #ddd;
+                border-bottom: 0.3px solid #ddd;
+          }
+          .healthRadio,.healthbirth
+          {
+                margin-top: 5px;
+                margin-bottom: 5px;
+          }
+          .healthbirth
+          {
+            padding-left: 10px
+          }
+          .healthProfImg
+          {
+            width:48px;
+            height: 41px;
+            background-image: url('../img/healthHeart.png');
+            background-repeat: no-repeat;
+          }
+          .heartBeat
+          {
+            width:52px;
+            height: 48px;
+            background-image: url('../img/heartBeat.png');
+            background-repeat: no-repeat;
+          }
+          .sleepBeat
+          {
+             width:83px;
+            height: 42px;
+            background-image: url('../img/sleepBeat.png');
+            background-repeat: no-repeat;
+          }
+          .healthprofileWrap .card-title
+          {
+          box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+          margin: -20px 15px 0;
+          border-radius: 3px;
+          padding: 10px;
+          }
+          .cardHeartBeat
+          {
+            height:150px;
+          }
+          .cardSleep
+          {
+            height:150px;
+          }
+          .heartBtVal,.sleepBtVal 
+          {
+             font-size: 23px;
+            color: #545454;
+          }
+          .cardMod
+          {
+          display: inline-block;
+          position: relative;
+          width: 100%;
+          margin: 25px 0;
+          box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+          border-radius: 3px;
+          color: rgba(0,0,0, 0.87);
+          background: #fff;
+          }
+          .cardMod .card-content{
+              padding: 15px 20px;
+            }
+            .boxTemp1
+            {
+            box-shadow: 10px 10px 5px rgba(136, 136, 136, 0.33);
+            padding: 3px;
+            padding-left: 20px;
+            padding-right: 0px;
+            border-radius: 13px;
+            background: #fff;
+            margin-bottom: 20px;
+            }
+            .boxTemp2
+            {
+            box-shadow: 10px 10px 5px rgba(136, 136, 136, 0.33);
+            padding: 3px;
+            padding-left: 20px;
+            padding-right: 0px;
+            border-radius: 13px;
+            background: #fff;
+            margin-bottom: 20px;
+            }
+            .boxPeak
+            {
+              box-shadow: 10px 10px 5px rgba(136, 136, 136, 0.33);
+              padding: 3px;
+              padding-left: 20px;
+              padding-right: 0px;
+              border-radius: 13px;
+              background: #fff;
+              margin-bottom: 20px;
+            }
+            .boxSecurity
+            {
+              box-shadow: 10px 10px 5px rgba(136, 136, 136, 0.33);
+              padding: 3px;
+              padding-left: 20px;
+              padding-right: 0px;
+              border-radius: 13px;
+              background: #fff;
+              margin-bottom: 20px;
+            }
+            .weaTempFrst,.weaTempSecnd
+            {
+              padding-left: 12%
+            }
+            .imageicon
+            {
+              width:56px;
+              height:56px;
+            }
+            .personDiv
+            {
+              margin-bottom: 20px;
+              text-align: center;
+            }
+            .personNameHealth
+            {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            }
+            .saveSettings
+            {
+              background-color: #18bcd0!important;
+              right: 12px
+            }
+            .leadership
+            {
+              text-align: center;
+              font-weight: bold;
+              padding-top: 10px;
+              font-size: 15px;
+              margin-bottom: 10px;
+            }
+            .namePerson{
+            color: #22a9ba;
+             font-weight: bold;
+            }
+            .personDiv div{
+             font-weight: bold;
+            }
+
+
+            @media (max-width: 1100px){
+              #videoCamera{
+                width: 90%;
+                height: 200px;
+              }
+            }
+            @media (max-width: 800px){
+               .weaTempFrst,.weaTempSecnd
+                  {
+                    padding-left: 0%;
+                  }
+            }

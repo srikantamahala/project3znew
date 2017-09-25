@@ -1,0 +1,17 @@
+<!--<div *ngIf="!Loggedin()" class="" style="background:linear-gradient(60deg, #ef5350, #e53935); height: 40px; width:100%;">
+</div>-->
+<div class="wrapper">
+    <pop-up></pop-up>
+    <!-- <div class="sidebar" data-color='red' *ngIf="Loggedin()">
+        <sidebar-cmp *ngIf="Loggedin()"></sidebar-cmp>
+        <div class="sidebar-background" style="background-image: url(../assets/img/sidebar-4.jpg)"></div>
+    </div> -->
+    <!-- <div [ngClass]="{'main-panel': !showDemo(), 'homelocation': showDemo()}"> -->
+    <div class="main-panel">
+        <!-- <navbar-cmp *ngIf="Loggedin()"></navbar-cmp> -->
+        <dashboard-cmp></dashboard-cmp>
+        <div *ngIf="Loggedin()">
+            <footer-cmp></footer-cmp>
+        </div>
+    </div>
+</div>

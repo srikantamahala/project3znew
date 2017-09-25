@@ -1,0 +1,91 @@
+<div class="main-content">
+    <div *ngIf="isLoading" class="isLoading">
+         <img src="../../../assets/img/loader.gif" class="loadingImage">
+    </div>
+    <div class="container-fluid">
+         <div *ngIf="noLights && !errorLights" class="row noDeviceMessage">
+             <span class="comingSoon">No Devices</span>
+         </div>
+          <div *ngIf="errorLights && !noLights" class="row noDeviceMessage">
+             <span class="comingSoon">Error in Fetching Devices</span>
+         </div>
+         <div *ngIf="!noLights && !errorLights" class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 widgetHolder {{(i!=0 && i!=1 && i!=2 && i!=3)?'marginTopBox':''}}" *ngFor ="let widget of allWidgets;let i = index;">
+            
+                    <div class="card card-stats" >
+                        <div class="card-header" style="color: white;" [style.background-color]="iconBackgroundColor(widget.brandName)">
+                            <i class="material-icons" *ngIf="deviceIcon(widget, 'Philips colorstrip')">timeline</i>
+                            <i class="material-icons" *ngIf="deviceIcon(widget, 'Philips whitebulb')">lightbulb_outline</i>
+                            <i class="material-icons" *ngIf="deviceIcon(widget, 'Philips colorbulb')">lightbulb_outline</i>
+                            <i class="material-icons" *ngIf="deviceIcon(widget, 'Insteon whitebulb')">lightbulb_outline</i>
+                        </div>
+                        <div class="card-content">
+                            <div class="deviceName">
+                                 <p class="category" title="{{ widget.deviceProfile[0].value }}">{{ deviceName(widget.deviceProfile[0].value) }}...</p>
+                            </div>
+                            <!--<input *ngIf="widget.showProfile" class="backbutton" type="button" (click)="backToControls(widget)">-->
+                            <button *ngIf="widget.showProfile" id="profilebackbtn" (click)="backToControls(widget)"></button>
+                            <div *ngIf="!widget.showProfile">
+                                <div *ngIf="getBlueRangeSlider(widget.brandName)">
+                                    <div class="blueSwitch" *ngIf="checkCapable(widget.deviceCapabilities,'switch')">
+                                        <label class="switch">
+                                            <input type="checkbox" [(ngModel)]="widget.state.on" (change)="showOnorOff(widget.state.on, widget.deviceId)" >
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                                 <div *ngIf="getBlackRangeSlider(widget.brandName)">
+                                    <div class="blueSwitch" *ngIf="checkCapable(widget.deviceCapabilities,'switch') && widget.state.reachable == 'true'">
+                                        <label class="switch">
+                                            <input type="checkbox" [(ngModel)]="widget.state.on" (change)="showOnorOff(widget.state.on, widget.deviceId)" >
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                    <div class="disabledSwitch" style="cursor:none;pointer-events:none;" *ngIf="widget.state.reachable == 'false'">
+                                        <label class="switch">
+                                            <input type="checkbox" [(ngModel)]="widget.state.on">
+                                            <div class="slider round"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>                  
+                        </div>
+                        <div class="footerWrapper">
+                            <div class="deviceProfile" *ngIf="widget.showProfile" style="height:264px;width:235px;">
+                                <div *ngFor ="let profile of widget.deviceProfile"><div *ngIf="showPublicProfile(profile.type)"><div class="profileKey">{{ profile.name }}:</div><div class="profileValue">{{ profile.value }}</div></div></div>
+                            </div>
+                            <div *ngIf="!widget.showProfile">
+                                <div class="card-footer" *ngIf="checkCapable(widget.deviceCapabilities,'hue')">
+                                    <span>Color</span><span style="float:right;"></span>
+                                    <span *ngIf="!widget.state.on || widget.state.reachable == 'false'" class="greyColorFullRange" > <input type="range" min="1000" max="65000" [(ngModel)]="widget.state.hue" disabled="true"></span>
+                                    <span *ngIf="widget.state.on && widget.state.reachable == 'true'" class="blackColorFullRange" > <input type="range" min="1000" max="65000" [(ngModel)]="widget.state.hue" (change)="showChangeColor(widget.state.hue,widget.deviceId)"></span>
+                                </div>
+                                <div class="card-footer" *ngIf="checkCapable(widget.deviceCapabilities,'brightness')">
+                                    <span>Brightness</span><span *ngIf="getBlackRangeSlider(widget.brandName)" style="float:right;">{{ roundUpBrightness(widget.state.brightness) }}%</span>
+                                    <span *ngIf="getBlueRangeSlider(widget.brandName)" style="float:right;">{{ widget.state.brightness }}%</span>
+                                     <span *ngIf="getBlueRangeSlider(widget.brandName)" class="blueRange"> 
+                                        <input *ngIf="widget.state.on" type="range" min="0" max="100" [(ngModel)]="widget.state.brightness" (change)="showChangeBrightness(widget.state.brightness,widget.deviceId)">
+                                        <span *ngIf="!widget.state.on" class="disabledRange"> <input type="range" [(ngModel)]="widget.state.brightness" disabled="true" min="0" max="100"></span>
+                                    </span>
+                                    <span *ngIf="getBlackRangeSlider(widget.brandName)" class="blackRange">
+                                        <input *ngIf="widget.state.on && widget.state.reachable == 'true'" type="range" min="0" max="254" [(ngModel)]="widget.state.brightness" (change)="showChangeBrightness(widget.state.brightness,widget.deviceId)">
+                                        <span *ngIf="!widget.state.on || widget.state.reachable == 'false'" class="disabledRange"> <input type="range" [(ngModel)]="widget.state.brightness" disabled="true" min="0" max="254"></span>
+                                    </span>    
+                                </div>
+                                <div class="card-footer" *ngIf="checkCapable(widget.deviceCapabilities,'saturation')">
+                                    <span>Saturation</span><span style="float:right;">{{ roundUpSaturation(widget.state.saturation) }}%</span>
+                                    <span *ngIf="widget.state.on && widget.state.reachable == 'true'" class="blackRange"> <input type="range" min="0" max="254" [(ngModel)]="widget.state.saturation" (change)="showChangeSaturation(widget.state.saturation,widget.deviceId)"></span>
+                                    <span *ngIf="!widget.state.on || widget.state.reachable == 'false'" class="disabledRange"> <input type="range" [(ngModel)]="widget.state.saturation" disabled="true" min="0" max="254"></span>    
+                                </div>
+                                <div class="card-footer">
+                                    <a style="color:#0645ad;cursor:pointer;" (click)="showProfilePopup(widget, $event)">Device Profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+    </div>
+</div>

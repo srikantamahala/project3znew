@@ -1,0 +1,114 @@
+<div class="alertPopup">
+     <div id="container" class="popupWrapper alertPopupWrapper" 
+     (mouseover)="fadeOutEffect()" (mouseout)="changeStyleOutPopup()">
+        <div class=" messagePopup">
+        	<div class="row">
+        	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding-top: 11px;padding-left: 19px;">
+        		<img  class="smokeImg"  src="./../../assets/img/smoke-icon.png"/>
+        	</div>
+        	<div class="col-lg-10 col-md-10 col-sm-10  col-xs-10">
+        		 <span class="cancelPopup" (click)="cancelPopup()">X</span>
+	        	<div class="msgHeaderPopup">Smoke Detected</div>
+	        	<div class="msgRoomPopup">Kitchen Room</div>
+	        	<!-- <div class="msgTimePopup">12:06</div> -->
+	        </div>
+	        </div>
+        </div>
+		<div>
+			<div class="row popupCameraMsg">
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" >
+				<div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span><img  class="fireSmallIcon"   src="./../../assets/img/smoke-icon-small.png" 
+			    	 /></span></div>
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" style="margin-top: 5px;"> 
+						<div class="msgDetailsPopup" style="line-height: 20px;">Would you like to view the camera?</div>
+						<!-- <div class="timeDetailsPopup">Since 12:06</div> -->
+					</div>
+				</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="position: relative;top: -10px;">
+				<!-- 	<span><img  id="viewCameraPopup" class=" pointerCursor" (click)="goToCamera()"   
+					(mouseover)="fadeOutEffect($event)" (mouseout)="changeStyleOutPopup($event)" src="./../../assets/img/layer-2.png" 
+			    	 /></span> -->
+			    	 <span><img  id="viewCameraPopup" class=" pointerCursor" (click)="goToCamera()"   
+					 src="./../../assets/img/layer-2.png" 
+			    	 /></span>
+			    	 <span class="viewCamera pointerCursor" (click)="goToCamera()" >View</span>
+			   	</div>
+			</div>
+			<!-- <div class="row popupCameraMsg">
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+				 <div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span><img  class="fireSmallIcon"   src="./../../assets/img/smoke-icon-small.png" 
+				    	 /></span>
+				    </div>
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+						<div>Living Room Smoke</div>
+						<div>Since 12.06</div>
+					</div>
+				</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<span><img  class="" src="./../../assets/img/layer-2.png" 
+			    	 /></span>
+				</div>
+			</div>
+			<div class="row popupCameraMsg">
+				<div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+				 <div class="row">
+					<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"><span><img  class="fireSmallIcon"   src="./../../assets/img/smoke-icon-small-b-w.png" 
+				    	 /></span>
+				    </div>
+					<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+						<div>Kids Room Smoke</div>
+						<div>Since 12.06</div>
+					</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+					<span><img  class="" (click)="cameraNavigate()" src="./../../assets/img/layer-2.png" 
+			    	 /></span>
+				</div>
+			</div> -->
+		</div>
+     </div>
+     <div class="popupWrapper cameraPopupWrapper">
+     	<img src="../../../assets/img/close_icon.png" class="cancelPopupCamera" (click)="cancelPopupCamera()"/>
+     		<img class="cameraInPopup" >
+     </div>
+
+     <div class="popupWrapper alertPopupDoor" 
+     (mouseover)="fadeOutEffectDoor()" (mouseout)="changeStyleOutPopupdoor()">
+	        <div class=" messagePopupDoor">
+	        	<div class="row">
+	        	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="padding-top: 11px;padding-left: 19px;">
+	        		<img  class="smokeImg"  src="./../../assets/img/doorsensor.png"/>
+	        	</div>
+	        	<div class="col-lg-10 col-md-10 col-sm-10  col-xs-10">
+	        		 <span class="cancelPopupDoor" (click)="cancelPopup()">X</span>
+		        	<div class="msgHeaderPopup">Few Seconds Ago </div>
+		        	<div class="doorPopFrstMsg">Looks Like there's some movement at Home.</div>
+		        	<div class="doorPopOthMsg">Are you expecting somebody?</div>
+		        </div>
+		        </div>
+	        </div>
+		 <div>
+			<div class="row popupCameraMsgDoor container-fluid">
+				<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10" >
+				<div>
+					<div  style="margin-top: 5px;"> 
+						<div class="msgDetailsDoorPop">Would you like to view Living Room Camera?</div>
+					</div>
+				</div>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2" style="position: relative;top: -10px;">
+			    	 <span><img  id="viewCameraPopupDoor" class=" pointerCursor" (click)="goToCamera()"   
+					 src="./../../assets/img/layer-2.png" 
+			    	 /></span>
+			    	 <span class="viewCameraDoor pointerCursor" (click)="goToCamera()" >View</span>
+			   	</div>
+			</div>
+		</div>
+     </div>
+</div>
+

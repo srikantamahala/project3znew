@@ -1,0 +1,180 @@
+<div class="">
+    <div class="headerHealth">
+    <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+                <li class="dropdown" title="Person">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                       <i class="material-icons personIcon">person</i>
+                       <p class="hidden-lg hidden-md">Profile</p>
+                    </a>
+                     <ul class="dropdown-menu logoutDropdown">
+                        <li><a href="#" tabindex="-1" style="pointer-events:none;">{{ loggedPerson }}</a></li>
+                        <li><a href="#" (click)="logout()">Logout</a></li>
+                        <!--<li><a href="#">You're now friend with Andrew</a></li>
+                        <li><a href="#">Another Notification</a></li>
+                        <li><a href="#">Another One</a></li>-->
+                    </ul>
+                </li>
+             </ul>
+            <ul class="homeMenu" title="Settings">
+              <li class="activeHomeMenu" routerLink="/user"> <i class="material-icons">settings</i></li>
+             </ul> 
+             <ul class="homeMenu" title="Home">
+              <li routerLink="/dashboard">
+                      <i class="material-icons">home</i>
+              </li>
+            <li routerLink="/health" title="My Family Wellness">
+            <i class="material-icons">directions_run</i></li>
+            </ul>  
+ 
+      </div>
+<div class="container-fluid">
+ <div *ngIf="isLoading" class="isLoading">
+         <img src="../../../assets/img/loader.gif" class="loadingImage">
+    </div>
+
+    <!-- <ul class="homeMenu">
+        <li class="activeHomeMenu">My Home</li>
+        <li routerLink="/health">My Family Wellness</li>
+    </ul>
+    <ul class="homeMenuSettings">
+        <li routerLink="/user">Settings</li>
+    </ul> -->
+    <!-- <div class="row noDeviceMessage">
+         <span class="comingSoon">No user settings</span>
+    </div> -->
+    <div class="settingsText">Settings</div>
+    <div class="row settingsWrapper">
+        <div class="lg-3 col-md-3 col-sm-3 col-xs-5 secSettings">
+        <div class="card" style="box-shadow: 0 1px 4px 0 #ff9801;">
+        	<div class="secModeText card-header">Security Mode</div>
+            <div class="secDetails card-content"  style="box-shadow: 0 1px 4px 0 #ff9801;">
+             <div class="boxSecurity">
+            	<div class="setSecMode yellowFontSettings">Set Security Mode</div>
+            	<div class="secImgWrap ">
+            		<div class="securityImg {{securityOn==true?'onImg':'offImg'}}"></div>
+            	</div>
+            	<div class="toggleSecurity">
+            		<div class="blueSwitch ">
+                                       <label class="switch">
+                                             <input type="checkbox" name="securityOn"  [(ngModel)]="securityOn" 
+                                             (change)="showOnorOff()" 
+                                             />
+                                           	 <div class="slider round"></div>
+                                         </label>
+                     </div>
+            	</div>
+                </div>
+            </div>
+        </div>
+        </div>	
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-7 tempSettings">
+        <div class="card" style="box-shadow: 0 1px 4px 0 #ff9801;">
+            <div class="tempSettingsText card-header">Temperature Settings</div>
+            <div class="tempRange tempDetails card-content">
+            <div class="boxTemp1">
+                <div class="row marginBotThirty">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <div class="weatherCloud">
+                        </div>  
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 weaTempFrst">
+                        <div class="yellowFontSettings marginBotTwenty">Weather Temperature Range 1</div>
+                        <div>
+                            <span class="frTmp">From</span>
+                            <input type="text" name="fromTemp" class="fromTemp"/>
+                            <span class="toTmp">To</span>
+                            <input type="text" name="toTemp" class="toTemp"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row marginBotForty">
+                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <div class="acTemp">
+                        </div>  
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 weaTempFrst" >
+                            <span class="yellowFontSettings marginBotTwenty">Set My AC Temperature</span>
+                            <input type="text" name="acTempVal" class="acTempVal"/>
+                    </div>
+                </div> 
+                </div>
+                <div class="boxTemp2">
+                <div class="row marginBotThirty">
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <div class="weatherCloud">
+                        </div>  
+                    </div>
+                    <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 weaTempSecnd">
+                        <div class="yellowFontSettings marginBotTwenty">Weather Temperature Range 1</div>
+                        <div>
+                            <span class="frTmp">From</span>
+                            <input type="text" name="fromTempOth" class="fromTemp"/>
+                            <span class="toTmp">To</span>
+                            <input type="text" name="toTempOth" class="toTemp"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row marginBotForty">
+                          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="acTemp">
+                            </div>  
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 weaTempSecnd">
+                                <span class="yellowFontSettings marginBotTwenty">Set My AC Temperature</span>
+                                <input type="text" name="acTempValOth" class="acTempVal"/>
+                        </div>
+                </div> 
+                </div>
+                <div class="row">
+                    <!-- <button class="tempReset">Reset</button> -->
+                    <!-- <button class="tempSave">Save</button> -->
+                     <button type="submit" class="saveSettings btn btn-danger pull-right">Save</button>
+                </div>
+            </div>
+            </div>
+        </div>	
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
+        <div class="card" style="box-shadow: 0 1px 4px 0 #ff9801;">
+            <div class="peakSettingsText card-header">Peak hour Settings</div>
+            <div class="peakRangeDetails card-content">
+                <div class="boxPeak">
+                <div class="row marginBotThirty">
+                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <div class="clockImg"></div>
+                     </div>
+                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        <div class="tempRange yellowFontSettings marginBotTwenty">Peakhour</div>
+                        <div>
+                                <span class="frPeak">From</span>
+                                <input type="text" name="frPeakVal" class="frPeakVal" [(ngModel)]="frPeakVal"/>
+                                <span class="toPeak">To</span>
+                                <input type="text" name="toPeakVal" class="toPeakVal" [(ngModel)]="toPeakVal"/>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="row marginBotForty">
+                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <div class="clockOthImg"></div>
+                         </div>
+                          <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                            <div class="tempRange yellowFontSettings marginBotTwenty">OffPeakhour</div>
+                            <div>
+                                    <span class="frPeak">From</span>
+                                    <input type="text" name="frPeakOffVal" class="frPeakVal" [(ngModel)]="frPeakOffVal" />
+                                    <span class="toPeak">To</span>
+                                    <input type="text" name="toPeakOffVal" class="toPeakVal" [(ngModel)]="toPeakOffVal" />
+                            </div>
+                          </div>
+                    </div>
+                 </div>   
+                    <div class="row">
+                       <!--  <button class="peakReset" (click)="resetPeakHour()">Reset</button>
+                        <button class="peakSave" (click)="savePeakHour()">Save</button> -->
+                         <button type="submit" (click)="savePeakHour()" class="saveSettings btn btn-danger pull-right">Save</button>
+                  </div>
+                </div>
+            </div>
+            </div>
+        </div>		
+    </div>
+</div>

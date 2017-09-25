@@ -1,0 +1,230 @@
+<div class="homelocation">
+<div *ngIf="isLoading" class="isLoading">
+         <img src="../../../assets/img/loader.gif" class="loadingImage">
+    </div>
+    <ul class="nav navbar-nav navbar-right" style="margin-right:10px">
+                <li class="dropdown" title="Person">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                       <i class="material-icons personIcon">person</i>
+                       <p class="hidden-lg hidden-md">Profile</p>
+                    </a>
+                     <ul class="dropdown-menu logoutDropdown">
+                        <li><a href="#" tabindex="-1" style="pointer-events:none;">{{ loggedPerson }}</a></li>
+                        <li><a href="#" (click)="logout()">Logout</a></li>
+                        <!--<li><a href="#">You're now friend with Andrew</a></li>
+                        <li><a href="#">Another Notification</a></li>
+                        <li><a href="#">Another One</a></li>-->
+                    </ul>
+                </li>
+             </ul>
+            <ul class="homeMenu" title="Settings">
+              <li routerLink="/user"> <i class="material-icons">settings</i></li>
+             </ul> 
+             <ul class="homeMenu">
+              <li  routerLink="/dashboard"  title="Home" class="activeHomeMenu">
+                      <i class="material-icons">home</i>
+              </li>
+            <li routerLink="/health" title="Family Wellness"><i class="material-icons">directions_run</i></li>
+            </ul>
+
+
+<!--     <ul class="homeMenu">
+        <li [ngClass]="{'activeHomeMenu': getTypeWidget('safety')}" (click)="setTypeWidget('safety')">SAFETY</li>
+        <li [ngClass]="{'activeHomeMenu': getTypeWidget('security')}" (click)="setTypeWidget('security')">SECURITY</li>
+        <li [ngClass]="{'activeHomeMenu': getTypeWidget('lighting')}" (click)="setTypeWidget('lighting')">LIGHTING EXPERIENCE</li>
+    </ul> -->
+<!--     <div [@deviceAnimation] *ngIf="getTypeWidget('security') || !hideAll">
+        <div class="camera"></div>
+    </div>
+    <div [@deviceAnimation] *ngIf="getTypeWidget('security') || !hideAll">
+        <div class="censor"></div>
+    </div>
+    <div [@deviceAnimation] *ngIf="getTypeWidget('safety') || !hideAll">
+        <div class="lock"></div>
+    </div>
+    <div [@deviceAnimation] *ngIf="getTypeWidget('safety') || !hideAll">
+        <div class="thermostat"></div>
+    </div> -->
+    <div >
+        <div class="camera" (click)="showCameraPopup('camera',10004)"></div>
+    </div>
+    <div  >
+        <div class="censor"></div>
+    </div>
+    <div >
+        <div class="lock"></div>
+    </div>
+    <div (click)="showThermostatPopup('thermostat',10007)">
+        <div class="thermostat" ></div>
+    </div>
+ <!--    <button id="profilebackbtn" (click)="goPreviousView()" style="margin-left: 20px;margin-top: 15px;"></button> -->
+
+    <div  [@deviceAnimation]  class="{{bulbonOff(tvBulb)==true?'mdbulbIconOn tvBulb':'mdbulbIconOff tvBulb'}}" (click)="showPopup('tvBulb',tvBulb)">
+        <!--  <i  style="color:hsl(0, 100%, 50%)" class="bedroomBulb material-icons activemicon">{{deviceIcon(10000)}}</i> -->
+
+                 <i class="material-icons micon" *ngIf="deviceIcon(tvBulb, 'Philips colorstrip')">timeline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(tvBulb, 'Philips whitebulb')">lightbulb_outline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(tvBulb, 'Philips colorbulb')">lightbulb_outline</i>
+                <i class="material-icons micon" *ngIf="deviceIcon(tvBulb, 'Insteon whitebulb')">lightbulb_outline</i>
+
+    </div>
+    <div [@deviceAnimation] class="{{bulbonOff(thermostatBulb)==true?'mdbulbIconOn thermostatBulb':'mdbulbIconOff thermostatBulb'}}" (click)="showPopup('thermostatBulb',thermostatBulb)">
+        <i class="material-icons micon" *ngIf="deviceIcon(thermostatBulb, 'Philips colorstrip')">timeline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(thermostatBulb, 'Philips whitebulb')">lightbulb_outline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(thermostatBulb, 'Philips colorbulb')">lightbulb_outline</i>
+                <i class="material-icons micon" *ngIf="deviceIcon(thermostatBulb, 'Insteon whitebulb')">lightbulb_outline</i>
+
+    </div>
+    <div  [@deviceAnimation] class="{{bulbonOff(bedroomWhiteBulb)==true?'mdbulbIconOn bedroomWhiteBulb':'mdbulbIconOff bedroomWhiteBulb'}}" (click)="showPopup('bedroomWhiteBulb',bedroomWhiteBulb)">
+         <i class="material-icons micon" *ngIf="deviceIcon(bedroomWhiteBulb, 'Philips colorstrip')">timeline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(bedroomWhiteBulb, 'Philips whitebulb')">lightbulb_outline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(bedroomWhiteBulb, 'Philips colorbulb')">lightbulb_outline</i>
+                <i class="material-icons micon" *ngIf="deviceIcon(bedroomWhiteBulb, 'Insteon whitebulb')">lightbulb_outline</i>
+    </div>
+    <div  [@deviceAnimation]  class="{{bulbonOff(bedroomColorBulb)==true?'mdbulbIconOn bedroomColorBulb':'mdbulbIconOff bedroomColorBulb'}}" (click)="showPopup('bedroomColorBulb',bedroomColorBulb)">
+        <i class="material-icons" *ngIf="deviceIcon(bedroomColorBulb, 'Philips colorstrip')">timeline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(bedroomColorBulb, 'Philips whitebulb')">lightbulb_outline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(bedroomColorBulb, 'Philips colorbulb')">lightbulb_outline</i>
+                <i class="material-icons micon" *ngIf="deviceIcon(bedroomColorBulb, 'Insteon whitebulb')">lightbulb_outline</i>
+    </div>
+    <div [@deviceAnimation] class="{{bulbonOff(balconyBulb)==true?'mdbulbIconOn balconyBulb':'mdbulbIconOff balconyBulb'}}" (click)="showPopup('balconyBulb',balconyBulb)">
+        <i class="material-icons" *ngIf="deviceIcon(balconyBulb, 'Philips colorstrip')">timeline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(balconyBulb, 'Philips whitebulb')">lightbulb_outline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(balconyBulb, 'Philips colorbulb')">lightbulb_outline</i>
+                <i class="material-icons micon" *ngIf="deviceIcon(balconyBulb, 'Insteon whitebulb')">lightbulb_outline</i>
+    </div>
+    <div [@deviceAnimation] class="{{bulbonOff(kitchenBulb)==true?'mdbulbIconOn kitchenBulb':'mdbulbIconOff kitchenBulb'}}" (click)="showPopup('kitchenBulb',kitchenBulb)">
+        <i class="material-icons" *ngIf="deviceIcon(kitchenBulb, 'Philips colorstrip')">timeline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(kitchenBulb, 'Philips whitebulb')">lightbulb_outline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(kitchenBulb, 'Philips colorbulb')">lightbulb_outline</i>
+                <i class="material-icons micon" *ngIf="deviceIcon(kitchenBulb, 'Insteon whitebulb')">lightbulb_outline</i>
+    </div>
+    <div [@deviceAnimation] class="{{bulbonOff(diningTableBulb)==true?'mdbulbIconOn diningTableBulb':'mdbulbIconOff diningTableBulb'}}"  (click)="showPopup('diningTableBulb',diningTableBulb)">
+         <i class="material-icons" *ngIf="deviceIcon(diningTableBulb, 'Philips colorstrip')">timeline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(diningTableBulb, 'Philips whitebulb')">lightbulb_outline</i>
+                 <i class="material-icons micon" *ngIf="deviceIcon(diningTableBulb, 'Philips colorbulb')">lightbulb_outline</i>
+                <i class="material-icons micon" *ngIf="deviceIcon(diningTableBulb, 'Insteon whitebulb')">lightbulb_outline</i>
+    </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6" *ngIf="showPopupCheck(dataIndividual)" [ngStyle]="popupstyle()" style="height:348px;z-index:1;">
+            <div class="card card-stats">
+               <!-- <div class="card-header" style="color:white" [style.background-color]="iconBackgroundColor(dataIndividual.brandName)">
+                 <i class="material-icons" *ngIf="deviceIcon(dataIndividual, 'Philips colorstrip')">timeline</i>
+                 <i class="material-icons" *ngIf="deviceIcon(dataIndividual, 'Philips whitebulb')">lightbulb_outline</i>
+                 <i class="material-icons" *ngIf="deviceIcon(dataIndividual, 'Philips colorbulb')">lightbulb_outline</i>
+                <i class="material-icons" *ngIf="deviceIcon(dataIndividual, 'Insteon whitebulb')">lightbulb_outline</i>
+                </div> -->
+                <div class="card-content" style="height: 70px;">
+                <div style="height:20px">
+                 <button type="button" (click)="cancelWidget()" class="close pull-right" 
+                  aria-label="Close" style="color:#c3c3c3;font-size:30px;line-height: 14px">
+                        <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <button *ngIf="dataIndividual && dataIndividual.showProfile" id="profilebackbtn" (click)="backToControls(dataIndividual)" class="pull-left" style="margin-top: 7px;"></button>
+                    <!-- <div style="width: 97px;margin-left:65px;margin-top:10px; text-align:right;padding-bottom:5px;"> -->
+                       <!--  <p class="category" title="{{ dataIndividual.deviceProfile[0].value }}">{{ deviceName(dataIndividual.deviceProfile[0].value) }}...</p> -->
+                    <!-- </div> -->
+                    <!--<input *ngIf="widget.showProfile" class="backbutton" type="button" (click)="backToControls(widget)">-->
+                    <!--<button *ngIf="widget.showProfile" id="profilebackbtn" (click)="backToControls(widget)"></button>-->
+                    <!--<div>-->
+
+                    <div class="row">
+                      <div class="col-lg-5 col-lg-5 col-sm-5 col-sm-5"  *ngIf="dataIndividual && !dataIndividual.showProfile">
+                          <div class="blueSwitch" *ngIf="checkCapable(dataIndividual.deviceCapabilities,'switch') 
+                          && dataIndividual.state.reachable == 'true'">
+                              <label class="switch" style="float:left">
+                                  <input type="checkbox" [(ngModel)]="dataIndividual.state.on" (change)="showOnorOff(dataIndividual.state.on, dataIndividual.deviceId)" >
+                                  <div class="slider round"></div>
+                              </label>
+                          </div>
+                          <div class="disabledSwitch" style="cursor:none;pointer-events:none;" *ngIf="dataIndividual.state.reachable == 'false'">
+                              <label class="switch" style="float:left;margin-top:-33px;">
+                                  <input type="checkbox" [(ngModel)]="dataIndividual.state.on">
+                                  <div class="slider round"></div>
+                              </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-7 col-lg-7 col-sm-7 col-sm-7">
+                           <div class="bulbNames" title="{{showBulbName()}}">{{showBulbName()}}</div>
+                        </div>
+                       </div> 
+                    <!--</div>                  -->
+                </div>
+                <div class="footerWrapper">
+                    <!--<div class="deviceProfile" *ngIf="dataIndividual.showProfile" style="height:264px;width:235px;">
+                        <div *ngFor ="let profile of dataIndividual.deviceProfile"><div *ngIf="showPublicProfile(profile.type)"><div class="profileKey">{{ profile.name }}:</div><div class="profileValue">{{ profile.value }}</div></div></div>
+                    </div>-->
+                    <div class="deviceProfile" *ngIf="dataIndividual && dataIndividual.showProfile" 
+                    style="height:264px;width:235px;padding-top: 20px; margin:10px auto">
+                            <div *ngFor ="let profile of dataIndividual.deviceProfile">
+                                  <div *ngIf="showPublicProfile(profile.type)" class="row" style="    padding-left: 7%;">
+                                    <div class="profileKey">{{ profile.name }}:</div>
+                                    <div class="profileValue">{{ profile.value }}</div>
+                                  </div>
+                            </div>
+                    </div>
+                    <div *ngIf="dataIndividual && !dataIndividual.showProfile">
+
+                        <div class="card-footer card-footer-loc" *ngIf="checkCapable(dataIndividual.deviceCapabilities,'hue')">
+                            <span>Color</span><span style="float:right;"></span>
+                            <span *ngIf="!dataIndividual.state.on || dataIndividual.state.reachable == 'false'" class="greyColorFullRange" > <input type="range" min="1000" max="65000" [(ngModel)]="dataIndividual.state.hue" disabled="true"></span>
+                            <span *ngIf="dataIndividual.state.on && dataIndividual.state.reachable == 'true'" class="blackColorFullRange" > <input type="range" min="1000" max="65000" [(ngModel)]="dataIndividual.state.hue" (change)="showChangeColor(dataIndividual.state.hue,dataIndividual.deviceId)"></span>
+                        </div>
+                        <div class="card-footer card-footer-loc" *ngIf="checkCapable(dataIndividual.deviceCapabilities,'brightness')">
+                            <span>Brightness</span><span style="float:right;"></span>
+                            <span *ngIf="dataIndividual.state.on && dataIndividual.state.reachable == 'true'" class="blackRange"> <input type="range" min="0" max="254" [(ngModel)]="dataIndividual.state.brightness" (change)="showChangeBrightness(dataIndividual.state.brightness,dataIndividual.deviceId)"></span>
+                            <span *ngIf="!dataIndividual.state.on || dataIndividual.state.reachable == 'false'" class="disabledRange"> <input type="range" [(ngModel)]="dataIndividual.state.brightness" disabled="true" min="0" max="254"></span>  
+                        </div>
+                        <div class="card-footer card-footer-loc" *ngIf="checkCapable(dataIndividual.deviceCapabilities,'saturation')">
+                            <span>Saturation</span><span style="float:right;"></span>
+                            <span *ngIf="dataIndividual.state.on && dataIndividual.state.reachable == 'true'" class="blackRange"> <input type="range" min="0" max="254" [(ngModel)]="dataIndividual.state.saturation" (change)="showChangeSaturation(dataIndividual.state.saturation,dataIndividual.deviceId)"></span>
+                            <span *ngIf="!dataIndividual.state.on || dataIndividual.state.reachable == 'false'" class="disabledRange"> <input type="range" [(ngModel)]="dataIndividual.state.saturation" disabled="true" min="0" max="254"></span>    
+                        </div>
+                        <div class="card-footer card-footer-loc">
+                            <a style="color:#0645ad;cursor:pointer;" (click)="showProfilePopup(dataIndividual)">Device Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 cameraViewLoc" *ngIf="showCameraPopupCheck()" style="height:348px;z-index:1;">
+         <div class="card card-stats">
+          
+            <!--  <img src="../../../assets/img/close_icon.png" class="cancelPopupCamera"  (click)="cancelWidget()"/> -->
+             <div class="card-footer">
+              <button type="button" (click)="cancelWidget()" class="close" aria-label="Close" style="color:#c3c3c3;font-size:30px;">
+                        <span aria-hidden="true">&times;</span>
+                    </button> 
+             <img class="cameraHomeLocation" src="{{showWidgetType=='camera'?
+             'https://cpplus.happiestminds.com/axis-cgi/mjpg/video.cgi':''}}" />
+              </div>
+            </div>
+         </div>  
+         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 thermostatViewLoc" *ngIf="showThermostatPopupCheck()" style="height:348px;z-index:1; overflow-y: auto;">
+         <div class="card card-stats">
+          
+            <!--  <img src="../../../assets/img/close_icon.png" class="cancelPopupCamera"  (click)="cancelWidget()"/> -->
+             <div class="card-footer card-footer-thermo" >
+             <button type="button" (click)="cancelWidget()" class="close" aria-label="Close" style="color:#c3c3c3;font-size:30px;">
+                        <span aria-hidden="true">&times;</span>
+              </button> 
+                 <div *ngIf="dataIndividual && dataIndividual.deviceProfile" style="display: block!important;">
+                      <div *ngFor ="let profile of dataIndividual.deviceProfile" style="display:block;height:30px;" >
+                                <div *ngIf="showPublicProfile(profile.type)" style="display:block;    height:30px;">
+                                      <div class="" style="float:left;width:40%">{{ profile.name }}:</div>
+                                      <div class="" style="float:left;width:40%">{{ profile.value }}</div>
+                                </div>
+                      </div>
+                   </div>
+                   <div *ngIf="dataIndividual && !dataIndividual.deviceProfile" class="row" 
+                   style="padding-left: 7%;display: block!important">
+                                    <div >No Profile Found</div>
+                  </div>
+              </div>
+            </div>
+         </div>  
+    </div>
+
+
+
